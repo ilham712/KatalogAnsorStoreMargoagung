@@ -162,17 +162,21 @@
     line-height:1.08;
     margin:0 0 18px;
     max-width:14ch;
+    padding-left: 10px;
   }
   .hero p{
     font-size:16px;
     color:rgba(251,247,238,0.82);
     max-width:52ch;
     margin:0 0 28px;
+    padding-left: 10px;
+
   }
   .hero-info{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
+    padding-left: 10px;
   }
   .hero-info-item{
     display:flex;
