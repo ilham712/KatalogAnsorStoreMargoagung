@@ -50,8 +50,8 @@ const PRODUCTS = [
     category: 'sarung',
     badge: 'Regular Collection',
     name: 'Sarung Batik — Seri Micro',
-    priceOriginal: 85000, // perlu diganti
-    priceSale: 75000, //perlu diganti
+    priceOriginal: 70000, // perlu diganti
+    priceSale: 60000, //perlu diganti
     shortDesc: 'Nyaman dipakai, mudah diatur, motif batik klasik modern, cocok untuk penggunaan harian hingga acara formal.',
     details: [
       { label: 'Bahan', value: 'Micro premium (ringan, jatuh, tidak kaku, warna tembus kain)' },
@@ -76,9 +76,10 @@ const PRODUCTS = [
     image: 'assets/Micro/MICRO.png', // TODO: isi foto utama produk
     variants: [
       { code: 'Motif 01', image: 'assets/Micro/Micro 1.png'}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: '' },
-      { code: 'Motif 03', image: '' },
-      { code: 'Motif 03', image: '' },
+      { code: 'Motif 02', image: 'assets/Micro/Micro 2.png' },
+      { code: 'Motif 03', image: 'assets/Micro/Micro 3.png' },
+      { code: 'Motif 04', image: 'assets/Micro/Micro 4.png' },
+      { code: 'Motif 05', image: 'assets/Micro/Micro 5.png' },
     ],
   },
 
@@ -87,8 +88,8 @@ const PRODUCTS = [
     category: 'sarung',
     badge: 'Regular Collection',
     name: 'Sarung Batik — Seri Gloyor Plus',
-    priceOriginal: 85000, //perlu perbaiki
-    priceSale: 75000, // perlu perbaiki
+    priceOriginal: 95000, //perlu perbaiki
+    priceSale: 85000, // perlu perbaiki
     shortDesc: 'Sarung batik dengan bahan gloyor pilihan yang terkenal lembut, jatuh, dan sejuk saat dikenakan.',
     details: [
       { label: 'Bahan', value: 'Gloyor premium (lembut, jatuh & adem)' },
@@ -110,10 +111,11 @@ const PRODUCTS = [
     ],
     image: 'assets/Goyor Plus/Goyor Plus.png', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: ''}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: '' },
-      { code: 'Motif 03', image: '' },
-      { code: 'Motif 03', image: '' },
+      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.png'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.png' },
+      { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.png' },
+      { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.png' },
+      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.png' }
     ],
   },
 
@@ -122,8 +124,8 @@ const PRODUCTS = [
     category: 'sarung',
     badge: 'Regular Collection',
     name: 'Sarung Batik — Seri Katun',
-    priceOriginal: 85000, //perlu perbaiki
-    priceSale: 75000, // perlu perbaiki
+    priceOriginal: 110000, //perlu perbaiki
+    priceSale: 100000, // perlu perbaiki
     shortDesc: 'Menggunakan bahan original katun berkualitas yang nyaman dipakai.',
     details: [
       { label: 'Bahan', value: 'Katun pilihan (jatuh, adem, mudah diatur)' },
@@ -144,10 +146,11 @@ const PRODUCTS = [
     ],
     image: 'assets/Katun/Katun.png', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: ''}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: '' },
-      { code: 'Motif 03', image: '' },
-      { code: 'Motif 03', image: '' },
+      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.png'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Katun/KATUN 2.png' },
+      { code: 'Motif 03', image: 'assets/Katun/KATUN 3.png' },
+      { code: 'Motif 04', image: 'assets/Katun/KATUN 4.png' },
+      { code: 'Motif 05', image: 'assets/Katun/KATUN 5.png' },
     ],
   },
 
