@@ -80,6 +80,11 @@ const PRODUCTS = [
       { code: 'Motif 03', image: 'assets/Micro/Micro 3.png' },
       { code: 'Motif 04', image: 'assets/Micro/Micro 4.png' },
       { code: 'Motif 05', image: 'assets/Micro/Micro 5.png' },
+      { code: 'Motif 06', image: 'assets/Micro/Micro 6.png' },
+      { code: 'Motif 07', image: 'assets/Micro/Micro 7.png' },
+      { code: 'Motif 08', image: 'assets/Micro/Micro 8.png' },
+      { code: 'Motif 09', image: 'assets/Micro/Micro 9.png' },
+      { code: 'Motif 10', image: 'assets/Micro/Micro 10.png' },
     ],
   },
 
@@ -115,7 +120,12 @@ const PRODUCTS = [
       { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.png' },
       { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.png' },
       { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.png' },
-      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.png' }
+      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.png' },
+      { code: 'Motif 06', image: 'assets/Goyor Plus/Goyor Plus 6.png' },
+      { code: 'Motif 07', image: 'assets/Goyor Plus/Goyor Plus 7.png' },
+      { code: 'Motif 08', image: 'assets/Goyor Plus/Goyor Plus 8.png' },
+      { code: 'Motif 09', image: 'assets/Goyor Plus/Goyor Plus 9.png' },
+      { code: 'Motif 10', image: 'assets/Goyor Plus/Goyor Plus 10.png' },
     ],
   },
 
@@ -151,6 +161,11 @@ const PRODUCTS = [
       { code: 'Motif 03', image: 'assets/Katun/KATUN 3.png' },
       { code: 'Motif 04', image: 'assets/Katun/KATUN 4.png' },
       { code: 'Motif 05', image: 'assets/Katun/KATUN 5.png' },
+      { code: 'Motif 06', image: 'assets/Katun/KATUN 6.png' },
+      { code: 'Motif 07', image: 'assets/Katun/KATUN 7.png' },
+      { code: 'Motif 08', image: 'assets/Katun/KATUN 8.png' },
+      { code: 'Motif 09', image: 'assets/Katun/KATUN 9.png' },
+      { code: 'Motif 10', image: 'assets/Katun/KATUN 10.png' },
     ],
   },
 
