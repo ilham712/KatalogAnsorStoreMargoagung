@@ -8,7 +8,7 @@ const CONFIG = {
   // EDIT: isi tanggal batas pre-order kalau sudah fiks, misal "20 Oktober 2026"
   poDeadlineText: "",
   // Nomor WA admin (format lokal 0887433286416 sudah dikonversi ke format internasional 62 di bawah)
-  whatsappNumber: "081992377218",
+  whatsappNumber: "+6281992377218",
 };
 
 /* Template pesan WhatsApp otomatis saat tombol "Pesan" diklik */
