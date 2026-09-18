@@ -56,11 +56,11 @@ const PRODUCTS = [
     details: [
       { label: 'Bahan', value: 'Micro premium (ringan, jatuh, tidak kaku, warna tembus kain)' },
       { label: 'Teknik', value: 'Printing' },
-      { label: 'Ukuran', value: '± 117 cm x 215–218 cm (Dewasa)' },
-      { label: 'Motif', value: 'Beragam, pilih kode motif di bawah' },
-      { label: 'Tekstur', value: 'Jatuh, Rapi, & tidak nerawang' },
-      { label: 'Label', value: '-' },
-      { label: 'Kemasan', value: 'Plastik' },
+      { label: 'Ukuran', value: '± 117 cm x 215–218 cm (Dewasa)'},
+      { label: 'Motif', value: 'Beragam, pilih kode motif di bawah'},
+      { label: 'Tekstur', value: 'Jatuh, Rapi, & tidak nerawang'},
+      { label: 'Label', value: '-'},
+      { label: 'Kemasan', value: 'Plastik'},
     ],
     highlights: [
       'Warna awet, tidak luntur',
@@ -73,23 +73,23 @@ const PRODUCTS = [
     sizeGuide: [
       { label: 'All Size (Dewasa)', size: '± 117 cm x 215–218 cm' },
     ],
-    image: 'assets/Micro/MICRO.png', // TODO: isi foto utama produk
+    image: 'assets/Micro/Micro.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Micro/Micro 1.png'}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Micro/Micro 2.png' },
-      { code: 'Motif 03', image: 'assets/Micro/Micro 3.png' },
-      { code: 'Motif 04', image: 'assets/Micro/Micro 4.png' },
-      { code: 'Motif 05', image: 'assets/Micro/Micro 5.png' },
-      { code: 'Motif 06', image: 'assets/Micro/Micro 6.png' },
-      { code: 'Motif 07', image: 'assets/Micro/Micro 7.png' },
-      { code: 'Motif 08', image: 'assets/Micro/Micro 8.png' },
-      { code: 'Motif 09', image: 'assets/Micro/Micro 9.png' },
-      { code: 'Motif 10', image: 'assets/Micro/Micro 10.png' },
-      { code: 'Motif 11', image: 'assets/Micro/Micro 11.png' },
-      { code: 'Motif 12', image: 'assets/Micro/Micro 12.png' },
-      { code: 'Motif 13', image: 'assets/Micro/Micro 13.png' },
-      { code: 'Motif 14', image: 'assets/Micro/Micro 14.png' },
-      { code: 'Motif 15', image: 'assets/Micro/Micro 15.png' },
+      { code: 'Motif 01', image: 'assets/Micro/Micro 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Micro/Micro 2.jpg' },
+      { code: 'Motif 03', image: 'assets/Micro/Micro 3.jpg' },
+      { code: 'Motif 04', image: 'assets/Micro/Micro 4.jpg' },
+      { code: 'Motif 05', image: 'assets/Micro/Micro 5.jpg' },
+      { code: 'Motif 06', image: 'assets/Micro/Micro 6.jpg' },
+      { code: 'Motif 07', image: 'assets/Micro/Micro 7.jpg' },
+      { code: 'Motif 08', image: 'assets/Micro/Micro 8.jpg' },
+      { code: 'Motif 09', image: 'assets/Micro/Micro 9.jpg' },
+      { code: 'Motif 10', image: 'assets/Micro/Micro 10.jpg' },
+      { code: 'Motif 11', image: 'assets/Micro/Micro 11.jpg' },
+      { code: 'Motif 12', image: 'assets/Micro/Micro 12.jpg' },
+      { code: 'Motif 13', image: 'assets/Micro/Micro 13.jpg' },
+      { code: 'Motif 14', image: 'assets/Micro/Micro 14.jpg' },
+      { code: 'Motif 15', image: 'assets/Micro/Micro 15.jpg' },
     ],
   },
 
@@ -119,23 +119,23 @@ const PRODUCTS = [
     sizeGuide: [
       { label: 'All Size (Dewasa)', size: '± 117 cm x 217–218 cm' },
     ],
-    image: 'assets/Goyor Plus/Goyor Plus.png', // TODO: isi foto utama produk
+    image: 'assets/Goyor Plus/Goyor Plus.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.png'}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.png' },
-      { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.png' },
-      { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.png' },
-      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.png' },
-      { code: 'Motif 06', image: 'assets/Goyor Plus/Goyor Plus 6.png' },
-      { code: 'Motif 07', image: 'assets/Goyor Plus/Goyor Plus 7.png' },
-      { code: 'Motif 08', image: 'assets/Goyor Plus/Goyor Plus 8.png' },
-      { code: 'Motif 09', image: 'assets/Goyor Plus/Goyor Plus 9.png' },
-      { code: 'Motif 10', image: 'assets/Goyor Plus/Goyor Plus 10.png' },
-      { code: 'Motif 11', image: 'assets/Goyor Plus/Goyor Plus 11.png' },
-      { code: 'Motif 12', image: 'assets/Goyor Plus/Goyor Plus 12.png' },
-      { code: 'Motif 13', image: 'assets/Goyor Plus/Goyor Plus 13.png' },
-      { code: 'Motif 14', image: 'assets/Goyor Plus/Goyor Plus 14.png' },
-      { code: 'Motif 15', image: 'assets/Goyor Plus/Goyor Plus 15.png' },
+      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.jpg' },
+      { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.jpg' },
+      { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.jpg' },
+      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.jpg' },
+      { code: 'Motif 06', image: 'assets/Goyor Plus/Goyor Plus 6.jpg' },
+      { code: 'Motif 07', image: 'assets/Goyor Plus/Goyor Plus 7.jpg' },
+      { code: 'Motif 08', image: 'assets/Goyor Plus/Goyor Plus 8.jpg' },
+      { code: 'Motif 09', image: 'assets/Goyor Plus/Goyor Plus 9.jpg' },
+      { code: 'Motif 10', image: 'assets/Goyor Plus/Goyor Plus 10.jpg' },
+      { code: 'Motif 11', image: 'assets/Goyor Plus/Goyor Plus 11.jpg' },
+      { code: 'Motif 12', image: 'assets/Goyor Plus/Goyor Plus 12.jpg' },
+      { code: 'Motif 13', image: 'assets/Goyor Plus/Goyor Plus 13.jpg' },
+      { code: 'Motif 14', image: 'assets/Goyor Plus/Goyor Plus 14.jpg' },
+      { code: 'Motif 15', image: 'assets/Goyor Plus/Goyor Plus 15.jpg' },
     ],
   },
 
@@ -164,23 +164,23 @@ const PRODUCTS = [
     sizeGuide: [
       { label: 'All Size (Dewasa)', size: '± 117 cm x 218 cm' },
     ],
-    image: 'assets/Katun/Katun.png', // TODO: isi foto utama produk
+    image: 'assets/Katun/Katun.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.png'}, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Katun/KATUN 2.png' },
-      { code: 'Motif 03', image: 'assets/Katun/KATUN 3.png' },
-      { code: 'Motif 04', image: 'assets/Katun/KATUN 4.png' },
-      { code: 'Motif 05', image: 'assets/Katun/KATUN 5.png' },
-      { code: 'Motif 06', image: 'assets/Katun/KATUN 6.png' },
-      { code: 'Motif 07', image: 'assets/Katun/KATUN 7.png' },
-      { code: 'Motif 08', image: 'assets/Katun/KATUN 8.png' },
-      { code: 'Motif 09', image: 'assets/Katun/KATUN 9.png' },
-      { code: 'Motif 10', image: 'assets/Katun/KATUN 10.png' },
-      { code: 'Motif 11', image: 'assets/Katun/KATUN 11.png' },
-      { code: 'Motif 12', image: 'assets/Katun/KATUN 12.png' },
-      { code: 'Motif 13', image: 'assets/Katun/KATUN 13.png' },
-      { code: 'Motif 14', image: 'assets/Katun/KATUN 14.png' },
-      { code: 'Motif 15', image: 'assets/Katun/KATUN 15.png' },
+      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Katun/KATUN 2.jpg' },
+      { code: 'Motif 03', image: 'assets/Katun/KATUN 3.jpg' },
+      { code: 'Motif 04', image: 'assets/Katun/KATUN 4.jpg' },
+      { code: 'Motif 05', image: 'assets/Katun/KATUN 5.jpg' },
+      { code: 'Motif 06', image: 'assets/Katun/KATUN 6.jpg' },
+      { code: 'Motif 07', image: 'assets/Katun/KATUN 7.jpg' },
+      { code: 'Motif 08', image: 'assets/Katun/KATUN 8.jpg' },
+      { code: 'Motif 09', image: 'assets/Katun/KATUN 9.jpg' },
+      { code: 'Motif 10', image: 'assets/Katun/KATUN 10.jpg' },
+      { code: 'Motif 11', image: 'assets/Katun/KATUN 11.jpg' },
+      { code: 'Motif 12', image: 'assets/Katun/KATUN 12.jpg' },
+      { code: 'Motif 13', image: 'assets/Katun/KATUN 13.jpg' },
+      { code: 'Motif 14', image: 'assets/Katun/KATUN 14.jpg' },
+      { code: 'Motif 15', image: 'assets/Katun/KATUN 15.jpg' },
     ],
   },
 
