@@ -75,7 +75,7 @@ const PRODUCTS = [
     ],
     image: 'assets/Micro/Micro.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Micro/Micro 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 01', image: 'assets/Micro/Micro 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
       { code: 'Motif 02', image: 'assets/Micro/Micro 2.jpg' },
       { code: 'Motif 03', image: 'assets/Micro/Micro 3.jpg' },
       { code: 'Motif 04', image: 'assets/Micro/Micro 4.jpg' },
@@ -90,6 +90,11 @@ const PRODUCTS = [
       { code: 'Motif 13', image: 'assets/Micro/Micro 13.jpg' },
       { code: 'Motif 14', image: 'assets/Micro/Micro 14.jpg' },
       { code: 'Motif 15', image: 'assets/Micro/Micro 15.jpg' },
+      { code: 'Motif 16', image: 'assets/Micro/Micro 16.jpg' },
+      { code: 'Motif 17', image: 'assets/Micro/Micro 17.jpg' },
+      { code: 'Motif 18', image: 'assets/Micro/Micro 18.jpg' },
+      { code: 'Motif 19', image: 'assets/Micro/Micro 19.jpg' },
+      { code: 'Motif 20', image: 'assets/Micro/Micro 20.jpg' },
     ],
   },
 
@@ -121,7 +126,7 @@ const PRODUCTS = [
     ],
     image: 'assets/Goyor Plus/Goyor Plus.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
       { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.jpg' },
       { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.jpg' },
       { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.jpg' },
@@ -136,6 +141,11 @@ const PRODUCTS = [
       { code: 'Motif 13', image: 'assets/Goyor Plus/Goyor Plus 13.jpg' },
       { code: 'Motif 14', image: 'assets/Goyor Plus/Goyor Plus 14.jpg' },
       { code: 'Motif 15', image: 'assets/Goyor Plus/Goyor Plus 15.jpg' },
+      { code: 'Motif 16', image: 'assets/Goyor Plus/Goyor Plus 16.jpg' },
+      { code: 'Motif 17', image: 'assets/Goyor Plus/Goyor Plus 17.jpg' },
+      { code: 'Motif 18', image: 'assets/Goyor Plus/Goyor Plus 18.jpg' },
+      { code: 'Motif 19', image: 'assets/Goyor Plus/Goyor Plus 19.jpg' },
+      { code: 'Motif 20', image: 'assets/Goyor Plus/Goyor Plus 20.jpg' },
     ],
   },
 
@@ -166,7 +176,7 @@ const PRODUCTS = [
     ],
     image: 'assets/Katun/Katun.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.jpg'}, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
       { code: 'Motif 02', image: 'assets/Katun/KATUN 2.jpg' },
       { code: 'Motif 03', image: 'assets/Katun/KATUN 3.jpg' },
       { code: 'Motif 04', image: 'assets/Katun/KATUN 4.jpg' },
@@ -181,6 +191,11 @@ const PRODUCTS = [
       { code: 'Motif 13', image: 'assets/Katun/KATUN 13.jpg' },
       { code: 'Motif 14', image: 'assets/Katun/KATUN 14.jpg' },
       { code: 'Motif 15', image: 'assets/Katun/KATUN 15.jpg' },
+      { code: 'Motif 16', image: 'assets/Katun/KATUN 16.jpg' },
+      { code: 'Motif 17', image: 'assets/Katun/KATUN 17.jpg' },
+      { code: 'Motif 18', image: 'assets/Katun/KATUN 18.jpg' },
+      { code: 'Motif 19', image: 'assets/Katun/KATUN 19.jpg' },
+      { code: 'Motif 20', image: 'assets/Katun/KATUN 20.jpg' },
     ],
   },
 
