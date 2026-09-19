@@ -3,7 +3,7 @@
    Edit bagian ini untuk ubah info kontak, nama acara, dsb.
    ================================================================= */
 const CONFIG = {
-  storeName: "ANSOR STORE",
+  storeName: "ANSOR MARGOAGUNG STORE",
   eventName: "Margoagung Bersholawat",
   // EDIT: isi tanggal batas pre-order kalau sudah fiks, misal "20 Oktober 2026"
   poDeadlineText: "",
@@ -11,12 +11,21 @@ const CONFIG = {
   whatsappNumber: "+6281992377218",
 };
 
-/* Template pesan WhatsApp otomatis saat tombol "Pesan" diklik */
-function buildWaMessage(product, variant){
+/* Template pesan WhatsApp otomatis saat tombol "Pesan" diklik.
+   Nama & Alamat sengaja dikosongkan (bukan diisi otomatis oleh sistem) -
+   nanti pemesan yang ngetik sendiri manual di WhatsApp. */
+function buildWaMessage(product, variant, size){
   let msg = `Assalamualaikum, saya ingin pre-order:\n\n`;
+  msg += `Nama: \n`;
+  msg += `Alamat: \n`;
   msg += `Produk: ${product.name}\n`;
-  if (variant) msg += `Motif: ${variant.code}\n`;
-  msg += `\nMohon info ketersediaan & cara pembayarannya ya. Terima kasih 🙏`;
+  if (product.category === 'kaos'){
+    if (size) msg += `Ukuran: ${size}\n`;
+    if (variant) msg += `Warna: ${variant.code}\n`;
+  } else {
+    if (variant) msg += `Motif: ${variant.code}\n`;
+  }
+  msg += `\nMohon info ketersediaan & cara pembayarannya ya. Terima kasih`;
   return msg;
 }
 function waLink(message){
@@ -208,6 +217,7 @@ const PRODUCTS = [
     name: 'Kaos Margoagung Bersholawat',
     priceOriginal: 100000,
     priceSale: 90000,
+    sizes: ['S', 'M', 'L', 'XL'], // TODO: sesuaikan ukuran yang tersedia
     shortDesc: '...',
     details: [
       { label: 'Bahan', value: 'Cotton Combed 30s' },
@@ -230,7 +240,7 @@ const PRODUCTS = [
 /* =================================================================
    4) RENDER — tidak perlu diedit untuk pemakaian normal
    ================================================================= */
-const state = { activeCategory: CATEGORIES[0].id, currentProduct: null, currentVariant: null };
+const state = { activeCategory: CATEGORIES[0].id, currentProduct: null, currentVariant: null, currentSize: null };
 
 function formatIDR(n){ return 'Rp' + Number(n).toLocaleString('id-ID'); }
 
@@ -308,8 +318,7 @@ function renderGrid(){
             <span class="price-sale">${formatIDR(p.priceSale)}</span>
           </div>
           <div class="card-actions">
-            <button class="btn btn-outline" data-detail="${p.id}">Lihat Detail</button>
-            <button class="btn btn-solid" data-order="${p.id}">Pesan</button>
+            <button class="btn btn-solid" data-detail="${p.id}">Lihat Detail</button>
           </div>
         </div>
       </article>`;
@@ -318,12 +327,6 @@ function renderGrid(){
   grid.querySelectorAll('[data-detail]').forEach(btn => {
     btn.addEventListener('click', () => openModal(btn.dataset.detail));
   });
-  grid.querySelectorAll('[data-order]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const product = PRODUCTS.find(p => p.id === btn.dataset.order);
-      window.open(waLink(buildWaMessage(product, null)), '_blank');
-    });
-  });
 }
 
 function openModal(productId){
@@ -331,6 +334,7 @@ function openModal(productId){
   if (!product) return;
   state.currentProduct = product;
   state.currentVariant = product.variants[0] || null;
+  state.currentSize = null; // wajib dipilih ulang tiap buka modal, khusus kaos
 
   document.getElementById('modalBadge').textContent = product.badge;
   document.getElementById('modalTitle').textContent = product.name;
@@ -372,6 +376,7 @@ function openModal(productId){
   document.getElementById('modalNote').textContent = product.note || '';
 
   renderGallery();
+  renderSizePicker();
   updateWaButton();
 
   document.getElementById('modalOverlay').classList.add('open');
@@ -403,15 +408,73 @@ function renderGallery(){
   });
 }
 
+/* Render pilihan ukuran (pill S/M/L/XL) - cuma tampil kalau produknya kategori 'kaos'
+   dan punya field 'sizes'. Sarung otomatis nggak nampilin blok ini. */
+function renderSizePicker(){
+  const product = state.currentProduct;
+  const block = document.getElementById('sizePickerBlock');
+  const needsSize = product.category === 'kaos' && Array.isArray(product.sizes) && product.sizes.length > 0;
+
+  if (!needsSize){
+    block.style.display = 'none';
+    return;
+  }
+
+  block.style.display = '';
+  document.getElementById('sizePillList').innerHTML = product.sizes.map(sz => `
+    <button type="button" class="size-pill ${sz === state.currentSize ? 'active' : ''}" data-size="${sz}">${sz}</button>
+  `).join('');
+
+  document.querySelectorAll('#sizePillList .size-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.currentSize = btn.dataset.size;
+      renderSizePicker();
+      updateWaButton();
+    });
+  });
+}
+
+/* Tombol "Pesan via WhatsApp" otomatis nonaktif kalau produknya kaos
+   dan ukuran belum dipilih - biar nggak ada pesanan tanpa ukuran. */
 function updateWaButton(){
-  const msg = buildWaMessage(state.currentProduct, state.currentVariant);
-  document.getElementById('modalWaBtn').href = waLink(msg);
+  const product = state.currentProduct;
+  const waBtn = document.getElementById('modalWaBtn');
+  const hint = document.getElementById('sizeHint');
+  const needsSize = product.category === 'kaos' && Array.isArray(product.sizes) && product.sizes.length > 0;
+  const sizeMissing = needsSize && !state.currentSize;
+
+  if (sizeMissing){
+    waBtn.classList.add('disabled');
+    waBtn.removeAttribute('href');
+    waBtn.setAttribute('aria-disabled', 'true');
+  } else {
+    waBtn.classList.remove('disabled');
+    waBtn.removeAttribute('aria-disabled');
+    const msg = buildWaMessage(product, state.currentVariant, state.currentSize);
+    waBtn.href = waLink(msg);
+  }
+
+  hint.style.display = sizeMissing ? '' : 'none';
 }
 
 function closeModal(){
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.classList.remove('modal-lock');
 }
+
+/* Kalau tombol WA lagi disabled (ukuran belum dipilih) terus tetap diklik,
+   kasih feedback visual (shake + hint) biar user sadar harus pilih ukuran dulu */
+document.getElementById('modalWaBtn').addEventListener('click', (e) => {
+  const waBtn = document.getElementById('modalWaBtn');
+  if (waBtn.classList.contains('disabled')){
+    e.preventDefault();
+    const block = document.getElementById('sizePickerBlock');
+    document.getElementById('sizeHint').style.display = '';
+    block.classList.remove('shake');
+    void block.offsetWidth; // restart animasi shake
+    block.classList.add('shake');
+  }
+});
 
 document.getElementById('modalClose').addEventListener('click', closeModal);
 document.getElementById('modalOverlay').addEventListener('click', (e) => {

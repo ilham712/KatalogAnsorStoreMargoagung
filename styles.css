@@ -1,5 +1,4 @@
-
-  /* ============================================================
+/* ============================================================
      TOKEN WARNA & TIPOGRAFI
      Hijau khas Ansor dipadu emas — ganti nilai di bawah kalau mau
      menyesuaikan warna resmi organisasi.
@@ -555,6 +554,47 @@
     margin-bottom:20px;
   }
 
+  /* Pilihan ukuran khusus kaos (pill S/M/L/XL) di dalam modal */
+  .size-pill-list{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .size-pill{
+    border:1px solid var(--line-200);
+    background:var(--white);
+    color:var(--ink-900);
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    min-width:48px;
+    transition:all .15s ease;
+  }
+  .size-pill:hover{background:var(--cream-100);}
+  .size-pill.active{
+    background:var(--green-900);
+    border-color:var(--green-900);
+    color:var(--cream-050);
+  }
+  .size-hint{
+    font-size:13px;
+    font-weight:600;
+    color:var(--gold-600);
+    margin:0;
+    display:none;
+  }
+
+  @keyframes shakeAttention{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-6px);}
+    40%{transform:translateX(6px);}
+    60%{transform:translateX(-4px);}
+    80%{transform:translateX(4px);}
+  }
+  .size-picker.shake{animation:shakeAttention .4s ease;}
+
   .wa-btn{
     display:flex;
     align-items:center;
@@ -572,6 +612,12 @@
   }
   .wa-btn:hover{background:var(--green-700);}
   .wa-btn svg{width:20px;height:20px;}
+  .wa-btn.disabled{
+    background:var(--line-200);
+    color:var(--ink-600);
+    cursor:not-allowed;
+  }
+  .wa-btn.disabled:hover{background:var(--line-200);}
 
   /* ============================================================
      FOOTER
@@ -617,10 +663,11 @@
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; scroll-behavior:auto !important;}
+    *{transition:none !important; animation:none !important; scroll-behavior:auto !important;}
   }
 
   @media (max-width:640px){
     .hero-inner{padding:52px 0 40px;}
     .modal-info{padding:22px 20px 26px;}
   }
+  
