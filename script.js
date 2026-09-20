@@ -231,8 +231,12 @@ const PRODUCTS = [
       { label: 'L', size: 'Lebar dada 52cm, Panjang 72cm' },
       { label: 'XL', size: 'Lebar dada 55cm, Panjang 75cm' },
     ],
-    image: '',
-    variants: [ { code: 'Hitam', image: '' }, { code: 'Navy', image: '' } ],
+    image: 'assets/Kaos MB/Kaos MB.jpg',
+    variants: [ 
+      { code: 'Hitam', image: 'assets/Kaos MB/Kaos MB Hitam.jpg' }, 
+      { code: 'Putih', image: 'assets/Kaos MB/Kaos MB Putih.jpg' }, 
+      { code: 'Hijau', image: 'assets/Kaos MB/Kaos MB Hijau.jpg' } 
+    ],
   },
   
 ];
