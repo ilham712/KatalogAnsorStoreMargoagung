@@ -18,6 +18,13 @@
     --line-200:#E4DAC0;
     --white:#FFFFFF;
 
+    --stock-ok-bg:#E4F2E9;
+    --stock-ok-text:#1E7A46;
+    --stock-limited-bg:#FBF0D9;
+    --stock-limited-text:#A9822F;
+    --stock-out-bg:#FBE4E4;
+    --stock-out-text:#8B2020;
+
     --font-display:'Fraunces', serif;
     --font-body:'Public Sans', sans-serif;
 
@@ -269,6 +276,10 @@
     position:relative;
     aspect-ratio:4/5;
   }
+  .card-media.stock-habis img{
+    filter:grayscale(65%);
+    opacity:.75;
+  }
   .card-badge{
     position:absolute;
     top:12px;
@@ -292,6 +303,21 @@
     padding:5px 10px;
     border-radius:999px;
   }
+  /* Pita status stok di bagian bawah foto produk - cuma muncul kalau
+     ada motif yang terbatas/habis, biar nggak nambah ramai kalau normal */
+  .stock-strip{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:6px 10px;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    color:#fff;
+  }
+  .stock-strip.terbatas{background:rgba(169,130,47,0.94);}
+  .stock-strip.habis{background:rgba(139,32,32,0.94);}
   .card-body{
     padding:16px 16px 18px;
     display:flex;
@@ -306,6 +332,12 @@
     line-height:1.3;
     color:var(--green-900);
     margin:0;
+  }
+  .card-meta-row{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
   }
   .card-meta{
     font-size:13px;
@@ -356,6 +388,25 @@
     color:var(--cream-050);
   }
   .btn-solid:hover{background:var(--green-700);}
+
+  /* ============================================================
+     BADGE STATUS STOK
+     Dipakai di card katalog & modal detail. Selalu tampil (bukan
+     cuma pas anomali) biar orang awam langsung lihat statusnya.
+     ============================================================ */
+  .stock-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .stock-badge.tersedia{background:var(--stock-ok-bg); color:var(--stock-ok-text);}
+  .stock-badge.terbatas{background:var(--stock-limited-bg); color:var(--stock-limited-text);}
+  .stock-badge.habis{background:var(--stock-out-bg); color:var(--stock-out-text);}
 
   /* ============================================================
      PLACEHOLDER FOTO
@@ -437,18 +488,38 @@
     gap:12px;
   }
   .modal-main-media{
+    position:relative;
     width:100%;
     aspect-ratio:4/5;
     border-radius:var(--radius-sm);
     overflow:hidden;
   }
   .modal-main-media img{width:100%;height:100%;object-fit:cover;}
+  .modal-main-media.out-of-stock img{
+    filter:grayscale(70%);
+    opacity:.6;
+  }
+  .stock-ribbon{
+    position:absolute;
+    top:16px;
+    left:-42px;
+    width:170px;
+    background:var(--stock-out-text);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    text-align:center;
+    padding:5px 0;
+    transform:rotate(-35deg);
+    box-shadow:0 2px 4px rgba(0,0,0,.25);
+  }
   .modal-thumbs{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
   }
   .thumb{
+    position:relative;
     width:56px;
     height:56px;
     border-radius:6px;
@@ -461,9 +532,37 @@
   .thumb img,.thumb .media-placeholder{width:100%;height:100%;}
   .thumb .media-placeholder svg{width:14px;height:14px;}
   .thumb .media-placeholder span{display:none;}
+  .thumb.thumb-habis img{filter:grayscale(70%); opacity:.45;}
+  .thumb-dot{
+    position:absolute;
+    top:2px;
+    right:2px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    border:1.5px solid var(--white);
+  }
+  .thumb-dot.terbatas{background:var(--gold-500);}
+  .thumb-dot.habis{background:var(--stock-out-text);}
+
+  /* Peringatan di bawah galeri kalau motif/warna yang dipilih lagi habis */
+  .stock-hint-gallery{
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--stock-out-text);
+    margin:0;
+    display:none;
+  }
 
   .modal-info{
     padding:26px 26px 30px;
+  }
+  .modal-badges{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:12px;
   }
   .modal-badge{
     display:inline-block;
@@ -473,7 +572,6 @@
     background:var(--green-050);
     padding:4px 12px;
     border-radius:999px;
-    margin-bottom:12px;
   }
   .modal-info h3{
     font-family:var(--font-display);
@@ -593,7 +691,7 @@
     60%{transform:translateX(-4px);}
     80%{transform:translateX(4px);}
   }
-  .size-picker.shake{animation:shakeAttention .4s ease;}
+  .shake{animation:shakeAttention .4s ease;}
 
   .wa-btn{
     display:flex;
@@ -670,4 +768,3 @@
     .hero-inner{padding:52px 0 40px;}
     .modal-info{padding:22px 20px 26px;}
   }
-  

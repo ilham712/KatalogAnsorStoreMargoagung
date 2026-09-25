@@ -52,6 +52,19 @@ const CATEGORIES = [
      Kalau dikosongkan (""), akan otomatis tampil kotak placeholder.
    - priceOriginal boleh disamakan dengan priceSale kalau produk
      tidak sedang diskon (badge diskon otomatis akan hilang).
+
+   ---- STOK PER MOTIF/VARIAN ----
+   Tiap objek di dalam `variants` sekarang punya field `stock` dengan
+   3 nilai valid:
+     - 'tersedia'  -> motif normal, tombol pesan aktif seperti biasa
+     - 'terbatas'  -> motif masih ada tapi menipis. Tombol pesan TETAP
+                      aktif, cuma dikasih tanda visual (badge kuning)
+     - 'habis'     -> motif habis. Otomatis dikasih tanda visual
+                      (abu-abu + badge merah), dan kalau motif ini yang
+                      lagi dipilih di modal, tombol "Pesan via WhatsApp"
+                      otomatis DINONAKTIFKAN sampai user pilih motif lain.
+   Semua motif di bawah ini defaultnya diisi 'tersedia' - tinggal ganti
+   satu-satu sesuai stok riil pas ada yang menipis/habis.
    ================================================================= */
 const PRODUCTS = [
   {
@@ -84,66 +97,66 @@ const PRODUCTS = [
     ],
     image: 'assets/Micro/Micro.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Micro/Micro 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Micro/Micro 2.jpg' },
-      { code: 'Motif 03', image: 'assets/Micro/Micro 3.jpg' },
-      { code: 'Motif 04', image: 'assets/Micro/Micro 4.jpg' },
-      { code: 'Motif 05', image: 'assets/Micro/Micro 5.jpg' },
-      { code: 'Motif 06', image: 'assets/Micro/Micro 6.jpg' },
-      { code: 'Motif 07', image: 'assets/Micro/Micro 7.jpg' },
-      { code: 'Motif 08', image: 'assets/Micro/Micro 8.jpg' },
-      { code: 'Motif 09', image: 'assets/Micro/Micro 9.jpg' },
-      { code: 'Motif 10', image: 'assets/Micro/Micro 10.jpg' },
-      { code: 'Motif 11', image: 'assets/Micro/Micro 11.jpg' },
-      { code: 'Motif 12', image: 'assets/Micro/Micro 12.jpg' },
-      { code: 'Motif 13', image: 'assets/Micro/Micro 13.jpg' },
-      { code: 'Motif 14', image: 'assets/Micro/Micro 14.jpg' },
-      { code: 'Motif 15', image: 'assets/Micro/Micro 15.jpg' },
-      { code: 'Motif 16', image: 'assets/Micro/Micro 16.jpg' },
-      { code: 'Motif 17', image: 'assets/Micro/Micro 17.jpg' },
-      { code: 'Motif 18', image: 'assets/Micro/Micro 18.jpg' },
-      { code: 'Motif 19', image: 'assets/Micro/Micro 19.jpg' },
-      { code: 'Motif 20', image: 'assets/Micro/Micro 20.jpg' },
-      { code: 'Motif 21', image: 'assets/Micro/Micro 21.jpg' },
-      { code: 'Motif 22', image: 'assets/Micro/Micro 22.jpg' },
-      { code: 'Motif 23', image: 'assets/Micro/Micro 23.jpg' },
-      { code: 'Motif 24', image: 'assets/Micro/Micro 24.jpg' },
-      { code: 'Motif 25', image: 'assets/Micro/Micro 25.jpg' },
-      { code: 'Motif 26', image: 'assets/Micro/Micro 26.jpg' },
-      { code: 'Motif 27', image: 'assets/Micro/Micro 27.jpg' },
-      { code: 'Motif 28', image: 'assets/Micro/Micro 28.jpg' },
-      { code: 'Motif 29', image: 'assets/Micro/Micro 29.jpg' },
-      { code: 'Motif 30', image: 'assets/Micro/Micro 30.jpg' },
-      { code: 'Motif 31', image: 'assets/Micro/Micro 31.jpg' },
-      { code: 'Motif 32', image: 'assets/Micro/Micro 32.jpg' },
-      { code: 'Motif 33', image: 'assets/Micro/Micro 33.jpg' },
-      { code: 'Motif 34', image: 'assets/Micro/Micro 34.jpg' },
-      { code: 'Motif 35', image: 'assets/Micro/Micro 35.jpg' },
-      { code: 'Motif 36', image: 'assets/Micro/Micro 36.jpg' },
-      { code: 'Motif 37', image: 'assets/Micro/Micro 37.jpg' },
-      { code: 'Motif 38', image: 'assets/Micro/Micro 38.jpg' },
-      { code: 'Motif 39', image: 'assets/Micro/Micro 39.jpg' },
-      { code: 'Motif 40', image: 'assets/Micro/Micro 40.jpg' },
-      { code: 'Motif 41', image: 'assets/Micro/Micro 41.jpg' },
-      { code: 'Motif 42', image: 'assets/Micro/Micro 42.jpg' },
-      { code: 'Motif 43', image: 'assets/Micro/Micro 43.jpg' },
-      { code: 'Motif 44', image: 'assets/Micro/Micro 44.jpg' },
-      { code: 'Motif 45', image: 'assets/Micro/Micro 45.jpg' },
-      { code: 'Motif 46', image: 'assets/Micro/Micro 46.jpg' },
-      { code: 'Motif 47', image: 'assets/Micro/Micro 47.jpg' },
-      { code: 'Motif 48', image: 'assets/Micro/Micro 48.jpg' },
-      { code: 'Motif 49', image: 'assets/Micro/Micro 49.jpg' },
-      { code: 'Motif 50', image: 'assets/Micro/Micro 50.jpg' },
-      { code: 'Motif 51', image: 'assets/Micro/Micro 51.jpg' },
-      { code: 'Motif 52', image: 'assets/Micro/Micro 52.jpg' },
-      { code: 'Motif 53', image: 'assets/Micro/Micro 53.jpg' },
-      { code: 'Motif 54', image: 'assets/Micro/Micro 54.jpg' },
-      { code: 'Motif 55', image: 'assets/Micro/Micro 55.jpg' },
-      { code: 'Motif 56', image: 'assets/Micro/Micro 56.jpg' },
-      { code: 'Motif 57', image: 'assets/Micro/Micro 57.jpg' },
-      { code: 'Motif 58', image: 'assets/Micro/Micro 58.jpg' },
-      { code: 'Motif 59', image: 'assets/Micro/Micro 59.jpg' },
-      { code: 'Motif 60', image: 'assets/Micro/Micro 60.jpg' },
+      { code: 'Motif 01', image: 'assets/Micro/Micro 1.jpg', stock: 'tersedia' }, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Micro/Micro 2.jpg', stock: 'tersedia' },
+      { code: 'Motif 03', image: 'assets/Micro/Micro 3.jpg', stock: 'tersedia' },
+      { code: 'Motif 04', image: 'assets/Micro/Micro 4.jpg', stock: 'tersedia' },
+      { code: 'Motif 05', image: 'assets/Micro/Micro 5.jpg', stock: 'tersedia' },
+      { code: 'Motif 06', image: 'assets/Micro/Micro 6.jpg', stock: 'tersedia' },
+      { code: 'Motif 07', image: 'assets/Micro/Micro 7.jpg', stock: 'tersedia' },
+      { code: 'Motif 08', image: 'assets/Micro/Micro 8.jpg', stock: 'tersedia' },
+      { code: 'Motif 09', image: 'assets/Micro/Micro 9.jpg', stock: 'tersedia' },
+      { code: 'Motif 10', image: 'assets/Micro/Micro 10.jpg', stock: 'tersedia' },
+      { code: 'Motif 11', image: 'assets/Micro/Micro 11.jpg', stock: 'tersedia' },
+      { code: 'Motif 12', image: 'assets/Micro/Micro 12.jpg', stock: 'tersedia' },
+      { code: 'Motif 13', image: 'assets/Micro/Micro 13.jpg', stock: 'tersedia' },
+      { code: 'Motif 14', image: 'assets/Micro/Micro 14.jpg', stock: 'tersedia' },
+      { code: 'Motif 15', image: 'assets/Micro/Micro 15.jpg', stock: 'tersedia' },
+      { code: 'Motif 16', image: 'assets/Micro/Micro 16.jpg', stock: 'tersedia' },
+      { code: 'Motif 17', image: 'assets/Micro/Micro 17.jpg', stock: 'tersedia' },
+      { code: 'Motif 18', image: 'assets/Micro/Micro 18.jpg', stock: 'tersedia' },
+      { code: 'Motif 19', image: 'assets/Micro/Micro 19.jpg', stock: 'tersedia' },
+      { code: 'Motif 20', image: 'assets/Micro/Micro 20.jpg', stock: 'tersedia' },
+      { code: 'Motif 21', image: 'assets/Micro/Micro 21.jpg', stock: 'tersedia' },
+      { code: 'Motif 22', image: 'assets/Micro/Micro 22.jpg', stock: 'tersedia' },
+      { code: 'Motif 23', image: 'assets/Micro/Micro 23.jpg', stock: 'tersedia' },
+      { code: 'Motif 24', image: 'assets/Micro/Micro 24.jpg', stock: 'tersedia' },
+      { code: 'Motif 25', image: 'assets/Micro/Micro 25.jpg', stock: 'tersedia' },
+      { code: 'Motif 26', image: 'assets/Micro/Micro 26.jpg', stock: 'tersedia' },
+      { code: 'Motif 27', image: 'assets/Micro/Micro 27.jpg', stock: 'tersedia' },
+      { code: 'Motif 28', image: 'assets/Micro/Micro 28.jpg', stock: 'tersedia' },
+      { code: 'Motif 29', image: 'assets/Micro/Micro 29.jpg', stock: 'tersedia' },
+      { code: 'Motif 30', image: 'assets/Micro/Micro 30.jpg', stock: 'tersedia' },
+      { code: 'Motif 31', image: 'assets/Micro/Micro 31.jpg', stock: 'tersedia' },
+      { code: 'Motif 32', image: 'assets/Micro/Micro 32.jpg', stock: 'tersedia' },
+      { code: 'Motif 33', image: 'assets/Micro/Micro 33.jpg', stock: 'tersedia' },
+      { code: 'Motif 34', image: 'assets/Micro/Micro 34.jpg', stock: 'tersedia' },
+      { code: 'Motif 35', image: 'assets/Micro/Micro 35.jpg', stock: 'tersedia' },
+      { code: 'Motif 36', image: 'assets/Micro/Micro 36.jpg', stock: 'tersedia' },
+      { code: 'Motif 37', image: 'assets/Micro/Micro 37.jpg', stock: 'tersedia' },
+      { code: 'Motif 38', image: 'assets/Micro/Micro 38.jpg', stock: 'tersedia' },
+      { code: 'Motif 39', image: 'assets/Micro/Micro 39.jpg', stock: 'tersedia' },
+      { code: 'Motif 40', image: 'assets/Micro/Micro 40.jpg', stock: 'tersedia' },
+      { code: 'Motif 41', image: 'assets/Micro/Micro 41.jpg', stock: 'tersedia' },
+      { code: 'Motif 42', image: 'assets/Micro/Micro 42.jpg', stock: 'tersedia' },
+      { code: 'Motif 43', image: 'assets/Micro/Micro 43.jpg', stock: 'tersedia' },
+      { code: 'Motif 44', image: 'assets/Micro/Micro 44.jpg', stock: 'tersedia' },
+      { code: 'Motif 45', image: 'assets/Micro/Micro 45.jpg', stock: 'tersedia' },
+      { code: 'Motif 46', image: 'assets/Micro/Micro 46.jpg', stock: 'tersedia' },
+      { code: 'Motif 47', image: 'assets/Micro/Micro 47.jpg', stock: 'tersedia' },
+      { code: 'Motif 48', image: 'assets/Micro/Micro 48.jpg', stock: 'tersedia' },
+      { code: 'Motif 49', image: 'assets/Micro/Micro 49.jpg', stock: 'tersedia' },
+      { code: 'Motif 50', image: 'assets/Micro/Micro 50.jpg', stock: 'tersedia' },
+      { code: 'Motif 51', image: 'assets/Micro/Micro 51.jpg', stock: 'tersedia' },
+      { code: 'Motif 52', image: 'assets/Micro/Micro 52.jpg', stock: 'tersedia' },
+      { code: 'Motif 53', image: 'assets/Micro/Micro 53.jpg', stock: 'tersedia' },
+      { code: 'Motif 54', image: 'assets/Micro/Micro 54.jpg', stock: 'tersedia' },
+      { code: 'Motif 55', image: 'assets/Micro/Micro 55.jpg', stock: 'tersedia' },
+      { code: 'Motif 56', image: 'assets/Micro/Micro 56.jpg', stock: 'tersedia' },
+      { code: 'Motif 57', image: 'assets/Micro/Micro 57.jpg', stock: 'tersedia' },
+      { code: 'Motif 58', image: 'assets/Micro/Micro 58.jpg', stock: 'tersedia' },
+      { code: 'Motif 59', image: 'assets/Micro/Micro 59.jpg', stock: 'tersedia' },
+      { code: 'Motif 60', image: 'assets/Micro/Micro 60.jpg', stock: 'tersedia' },
     ],
   },
 
@@ -175,69 +188,69 @@ const PRODUCTS = [
     ],
     image: 'assets/Goyor Plus/Goyor Plus.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.jpg' },
-      { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.jpg' },
-      { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.jpg' },
-      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.jpg' },
-      { code: 'Motif 06', image: 'assets/Goyor Plus/Goyor Plus 6.jpg' },
-      { code: 'Motif 07', image: 'assets/Goyor Plus/Goyor Plus 7.jpg' },
-      { code: 'Motif 08', image: 'assets/Goyor Plus/Goyor Plus 8.jpg' },
-      { code: 'Motif 09', image: 'assets/Goyor Plus/Goyor Plus 9.jpg' },
-      { code: 'Motif 10', image: 'assets/Goyor Plus/Goyor Plus 10.jpg' },
-      { code: 'Motif 11', image: 'assets/Goyor Plus/Goyor Plus 11.jpg' },
-      { code: 'Motif 12', image: 'assets/Goyor Plus/Goyor Plus 12.jpg' },
-      { code: 'Motif 13', image: 'assets/Goyor Plus/Goyor Plus 13.jpg' },
-      { code: 'Motif 14', image: 'assets/Goyor Plus/Goyor Plus 14.jpg' },
-      { code: 'Motif 15', image: 'assets/Goyor Plus/Goyor Plus 15.jpg' },
-      { code: 'Motif 16', image: 'assets/Goyor Plus/Goyor Plus 16.jpg' },
-      { code: 'Motif 17', image: 'assets/Goyor Plus/Goyor Plus 17.jpg' },
-      { code: 'Motif 18', image: 'assets/Goyor Plus/Goyor Plus 18.jpg' },
-      { code: 'Motif 19', image: 'assets/Goyor Plus/Goyor Plus 19.jpg' },
-      { code: 'Motif 20', image: 'assets/Goyor Plus/Goyor Plus 20.jpg' },
-      { code: 'Motif 21', image: 'assets/Goyor Plus/Goyor Plus 21.jpg' },
-      { code: 'Motif 22', image: 'assets/Goyor Plus/Goyor Plus 22.jpg' },
-      { code: 'Motif 23', image: 'assets/Goyor Plus/Goyor Plus 23.jpg' },
-      { code: 'Motif 24', image: 'assets/Goyor Plus/Goyor Plus 24.jpg' },
-      { code: 'Motif 25', image: 'assets/Goyor Plus/Goyor Plus 25.jpg' },
-      { code: 'Motif 26', image: 'assets/Goyor Plus/Goyor Plus 26.jpg' },
-      { code: 'Motif 27', image: 'assets/Goyor Plus/Goyor Plus 27.jpg' },
-      { code: 'Motif 28', image: 'assets/Goyor Plus/Goyor Plus 28.jpg' },
-      { code: 'Motif 29', image: 'assets/Goyor Plus/Goyor Plus 29.jpg' },
-      { code: 'Motif 30', image: 'assets/Goyor Plus/Goyor Plus 30.jpg' },
-      { code: 'Motif 31', image: 'assets/Goyor Plus/Goyor Plus 31.jpg' },
-      { code: 'Motif 32', image: 'assets/Goyor Plus/Goyor Plus 32.jpg' },
-      { code: 'Motif 33', image: 'assets/Goyor Plus/Goyor Plus 33.jpg' },
-      { code: 'Motif 34', image: 'assets/Goyor Plus/Goyor Plus 34.jpg' },
-      { code: 'Motif 35', image: 'assets/Goyor Plus/Goyor Plus 35.jpg' },
-      { code: 'Motif 36', image: 'assets/Goyor Plus/Goyor Plus 36.jpg' },
-      { code: 'Motif 37', image: 'assets/Goyor Plus/Goyor Plus 37.jpg' },
-      { code: 'Motif 38', image: 'assets/Goyor Plus/Goyor Plus 38.jpg' },
-      { code: 'Motif 39', image: 'assets/Goyor Plus/Goyor Plus 39.jpg' },
-      { code: 'Motif 40', image: 'assets/Goyor Plus/Goyor Plus 40.jpg' },
-      { code: 'Motif 41', image: 'assets/Goyor Plus/Goyor Plus 41.jpg' },
-      { code: 'Motif 42', image: 'assets/Goyor Plus/Goyor Plus 42.jpg' },
-      { code: 'Motif 43', image: 'assets/Goyor Plus/Goyor Plus 43.jpg' },
-      { code: 'Motif 44', image: 'assets/Goyor Plus/Goyor Plus 44.jpg' },
-      { code: 'Motif 45', image: 'assets/Goyor Plus/Goyor Plus 45.jpg' },
-      { code: 'Motif 46', image: 'assets/Goyor Plus/Goyor Plus 46.jpg' },
-      { code: 'Motif 47', image: 'assets/Goyor Plus/Goyor Plus 47.jpg' },
-      { code: 'Motif 48', image: 'assets/Goyor Plus/Goyor Plus 48.jpg' },
-      { code: 'Motif 49', image: 'assets/Goyor Plus/Goyor Plus 49.jpg' },
-      { code: 'Motif 50', image: 'assets/Goyor Plus/Goyor Plus 50.jpg' },
-      { code: 'Motif 51', image: 'assets/Goyor Plus/Goyor Plus 51.jpg' },
-      { code: 'Motif 52', image: 'assets/Goyor Plus/Goyor Plus 52.jpg' },
-      { code: 'Motif 53', image: 'assets/Goyor Plus/Goyor Plus 53.jpg' },
-      { code: 'Motif 54', image: 'assets/Goyor Plus/Goyor Plus 54.jpg' },
-      { code: 'Motif 55', image: 'assets/Goyor Plus/Goyor Plus 55.jpg' },
-      { code: 'Motif 56', image: 'assets/Goyor Plus/Goyor Plus 56.jpg' },
-      { code: 'Motif 57', image: 'assets/Goyor Plus/Goyor Plus 57.jpg' },
-      { code: 'Motif 58', image: 'assets/Goyor Plus/Goyor Plus 58.jpg' },
-      { code: 'Motif 59', image: 'assets/Goyor Plus/Goyor Plus 59.jpg' },
-      { code: 'Motif 60', image: 'assets/Goyor Plus/Goyor Plus 60.jpg' },
-      { code: 'Motif 61', image: 'assets/Goyor Plus/Goyor Plus 61.jpg' },
-      { code: 'Motif 62', image: 'assets/Goyor Plus/Goyor Plus 62.jpg' },
-      { code: 'Motif 63', image: 'assets/Goyor Plus/Goyor Plus 63.jpg' },
+      { code: 'Motif 01', image: 'assets/Goyor Plus/Goyor Plus 1.jpg', stock: 'tersedia' }, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Goyor Plus/Goyor Plus 2.jpg', stock: 'tersedia' },
+      { code: 'Motif 03', image: 'assets/Goyor Plus/Goyor Plus 3.jpg', stock: 'tersedia' },
+      { code: 'Motif 04', image: 'assets/Goyor Plus/Goyor Plus 4.jpg', stock: 'tersedia' },
+      { code: 'Motif 05', image: 'assets/Goyor Plus/Goyor Plus 5.jpg', stock: 'tersedia' },
+      { code: 'Motif 06', image: 'assets/Goyor Plus/Goyor Plus 6.jpg', stock: 'tersedia' },
+      { code: 'Motif 07', image: 'assets/Goyor Plus/Goyor Plus 7.jpg', stock: 'tersedia' },
+      { code: 'Motif 08', image: 'assets/Goyor Plus/Goyor Plus 8.jpg', stock: 'tersedia' },
+      { code: 'Motif 09', image: 'assets/Goyor Plus/Goyor Plus 9.jpg', stock: 'tersedia' },
+      { code: 'Motif 10', image: 'assets/Goyor Plus/Goyor Plus 10.jpg', stock: 'tersedia' },
+      { code: 'Motif 11', image: 'assets/Goyor Plus/Goyor Plus 11.jpg', stock: 'tersedia' },
+      { code: 'Motif 12', image: 'assets/Goyor Plus/Goyor Plus 12.jpg', stock: 'tersedia' },
+      { code: 'Motif 13', image: 'assets/Goyor Plus/Goyor Plus 13.jpg', stock: 'tersedia' },
+      { code: 'Motif 14', image: 'assets/Goyor Plus/Goyor Plus 14.jpg', stock: 'tersedia' },
+      { code: 'Motif 15', image: 'assets/Goyor Plus/Goyor Plus 15.jpg', stock: 'tersedia' },
+      { code: 'Motif 16', image: 'assets/Goyor Plus/Goyor Plus 16.jpg', stock: 'tersedia' },
+      { code: 'Motif 17', image: 'assets/Goyor Plus/Goyor Plus 17.jpg', stock: 'tersedia' },
+      { code: 'Motif 18', image: 'assets/Goyor Plus/Goyor Plus 18.jpg', stock: 'tersedia' },
+      { code: 'Motif 19', image: 'assets/Goyor Plus/Goyor Plus 19.jpg', stock: 'tersedia' },
+      { code: 'Motif 20', image: 'assets/Goyor Plus/Goyor Plus 20.jpg', stock: 'tersedia' },
+      { code: 'Motif 21', image: 'assets/Goyor Plus/Goyor Plus 21.jpg', stock: 'tersedia' },
+      { code: 'Motif 22', image: 'assets/Goyor Plus/Goyor Plus 22.jpg', stock: 'tersedia' },
+      { code: 'Motif 23', image: 'assets/Goyor Plus/Goyor Plus 23.jpg', stock: 'tersedia' },
+      { code: 'Motif 24', image: 'assets/Goyor Plus/Goyor Plus 24.jpg', stock: 'tersedia' },
+      { code: 'Motif 25', image: 'assets/Goyor Plus/Goyor Plus 25.jpg', stock: 'tersedia' },
+      { code: 'Motif 26', image: 'assets/Goyor Plus/Goyor Plus 26.jpg', stock: 'tersedia' },
+      { code: 'Motif 27', image: 'assets/Goyor Plus/Goyor Plus 27.jpg', stock: 'tersedia' },
+      { code: 'Motif 28', image: 'assets/Goyor Plus/Goyor Plus 28.jpg', stock: 'tersedia' },
+      { code: 'Motif 29', image: 'assets/Goyor Plus/Goyor Plus 29.jpg', stock: 'tersedia' },
+      { code: 'Motif 30', image: 'assets/Goyor Plus/Goyor Plus 30.jpg', stock: 'tersedia' },
+      { code: 'Motif 31', image: 'assets/Goyor Plus/Goyor Plus 31.jpg', stock: 'tersedia' },
+      { code: 'Motif 32', image: 'assets/Goyor Plus/Goyor Plus 32.jpg', stock: 'tersedia' },
+      { code: 'Motif 33', image: 'assets/Goyor Plus/Goyor Plus 33.jpg', stock: 'tersedia' },
+      { code: 'Motif 34', image: 'assets/Goyor Plus/Goyor Plus 34.jpg', stock: 'tersedia' },
+      { code: 'Motif 35', image: 'assets/Goyor Plus/Goyor Plus 35.jpg', stock: 'tersedia' },
+      { code: 'Motif 36', image: 'assets/Goyor Plus/Goyor Plus 36.jpg', stock: 'tersedia' },
+      { code: 'Motif 37', image: 'assets/Goyor Plus/Goyor Plus 37.jpg', stock: 'tersedia' },
+      { code: 'Motif 38', image: 'assets/Goyor Plus/Goyor Plus 38.jpg', stock: 'tersedia' },
+      { code: 'Motif 39', image: 'assets/Goyor Plus/Goyor Plus 39.jpg', stock: 'tersedia' },
+      { code: 'Motif 40', image: 'assets/Goyor Plus/Goyor Plus 40.jpg', stock: 'tersedia' },
+      { code: 'Motif 41', image: 'assets/Goyor Plus/Goyor Plus 41.jpg', stock: 'tersedia' },
+      { code: 'Motif 42', image: 'assets/Goyor Plus/Goyor Plus 42.jpg', stock: 'tersedia' },
+      { code: 'Motif 43', image: 'assets/Goyor Plus/Goyor Plus 43.jpg', stock: 'tersedia' },
+      { code: 'Motif 44', image: 'assets/Goyor Plus/Goyor Plus 44.jpg', stock: 'habis' },
+      { code: 'Motif 45', image: 'assets/Goyor Plus/Goyor Plus 45.jpg', stock: 'tersedia' },
+      { code: 'Motif 46', image: 'assets/Goyor Plus/Goyor Plus 46.jpg', stock: 'tersedia' },
+      { code: 'Motif 47', image: 'assets/Goyor Plus/Goyor Plus 47.jpg', stock: 'tersedia' },
+      { code: 'Motif 48', image: 'assets/Goyor Plus/Goyor Plus 48.jpg', stock: 'tersedia' },
+      { code: 'Motif 49', image: 'assets/Goyor Plus/Goyor Plus 49.jpg', stock: 'tersedia' },
+      { code: 'Motif 50', image: 'assets/Goyor Plus/Goyor Plus 50.jpg', stock: 'tersedia' },
+      { code: 'Motif 51', image: 'assets/Goyor Plus/Goyor Plus 51.jpg', stock: 'tersedia' },
+      { code: 'Motif 52', image: 'assets/Goyor Plus/Goyor Plus 52.jpg', stock: 'tersedia' },
+      { code: 'Motif 53', image: 'assets/Goyor Plus/Goyor Plus 53.jpg', stock: 'tersedia' },
+      { code: 'Motif 54', image: 'assets/Goyor Plus/Goyor Plus 54.jpg', stock: 'tersedia' },
+      { code: 'Motif 55', image: 'assets/Goyor Plus/Goyor Plus 55.jpg', stock: 'tersedia' },
+      { code: 'Motif 56', image: 'assets/Goyor Plus/Goyor Plus 56.jpg', stock: 'tersedia' },
+      { code: 'Motif 57', image: 'assets/Goyor Plus/Goyor Plus 57.jpg', stock: 'tersedia' },
+      { code: 'Motif 58', image: 'assets/Goyor Plus/Goyor Plus 58.jpg', stock: 'tersedia' },
+      { code: 'Motif 59', image: 'assets/Goyor Plus/Goyor Plus 59.jpg', stock: 'tersedia' },
+      { code: 'Motif 60', image: 'assets/Goyor Plus/Goyor Plus 60.jpg', stock: 'tersedia' },
+      { code: 'Motif 61', image: 'assets/Goyor Plus/Goyor Plus 61.jpg', stock: 'tersedia' },
+      { code: 'Motif 62', image: 'assets/Goyor Plus/Goyor Plus 62.jpg', stock: 'tersedia' },
+      { code: 'Motif 63', image: 'assets/Goyor Plus/Goyor Plus 63.jpg', stock: 'tersedia' },
     ],
   },
 
@@ -268,96 +281,96 @@ const PRODUCTS = [
     ],
     image: 'assets/Katun/Katun.jpg', // TODO: isi foto utama produk
     variants: [
-      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.jpg' }, // TODO: ganti "" dengan path foto motif asli
-      { code: 'Motif 02', image: 'assets/Katun/KATUN 2.jpg' },
-      { code: 'Motif 03', image: 'assets/Katun/KATUN 3.jpg' },
-      { code: 'Motif 04', image: 'assets/Katun/KATUN 4.jpg' },
-      { code: 'Motif 05', image: 'assets/Katun/KATUN 5.jpg' },
-      { code: 'Motif 06', image: 'assets/Katun/KATUN 6.jpg' },
-      { code: 'Motif 07', image: 'assets/Katun/KATUN 7.jpg' },
-      { code: 'Motif 08', image: 'assets/Katun/KATUN 8.jpg' },
-      { code: 'Motif 09', image: 'assets/Katun/KATUN 9.jpg' },
-      { code: 'Motif 10', image: 'assets/Katun/KATUN 10.jpg' },
-      { code: 'Motif 11', image: 'assets/Katun/KATUN 11.jpg' },
-      { code: 'Motif 12', image: 'assets/Katun/KATUN 12.jpg' },
-      { code: 'Motif 13', image: 'assets/Katun/KATUN 13.jpg' },
-      { code: 'Motif 14', image: 'assets/Katun/KATUN 14.jpg' },
-      { code: 'Motif 15', image: 'assets/Katun/KATUN 15.jpg' },
-      { code: 'Motif 16', image: 'assets/Katun/KATUN 16.jpg' },
-      { code: 'Motif 17', image: 'assets/Katun/KATUN 17.jpg' },
-      { code: 'Motif 18', image: 'assets/Katun/KATUN 18.jpg' },
-      { code: 'Motif 19', image: 'assets/Katun/KATUN 19.jpg' },
-      { code: 'Motif 20', image: 'assets/Katun/KATUN 20.jpg' },
-      { code: 'Motif 21', image: 'assets/Katun/KATUN 21.jpg' },
-      { code: 'Motif 22', image: 'assets/Katun/KATUN 22.jpg' },
-      { code: 'Motif 23', image: 'assets/Katun/KATUN 23.jpg' },
-      { code: 'Motif 24', image: 'assets/Katun/KATUN 24.jpg' },
-      { code: 'Motif 25', image: 'assets/Katun/KATUN 25.jpg' },
-      { code: 'Motif 26', image: 'assets/Katun/KATUN 26.jpg' },
-      { code: 'Motif 27', image: 'assets/Katun/KATUN 27.jpg' },
-      { code: 'Motif 28', image: 'assets/Katun/KATUN 28.jpg' },
-      { code: 'Motif 29', image: 'assets/Katun/KATUN 29.jpg' },
-      { code: 'Motif 30', image: 'assets/Katun/KATUN 30.jpg' },
-      { code: 'Motif 31', image: 'assets/Katun/KATUN 31.jpg' },
-      { code: 'Motif 32', image: 'assets/Katun/KATUN 32.jpg' },
-      { code: 'Motif 33', image: 'assets/Katun/KATUN 33.jpg' },
-      { code: 'Motif 34', image: 'assets/Katun/KATUN 34.jpg' },
-      { code: 'Motif 35', image: 'assets/Katun/KATUN 35.jpg' },
-      { code: 'Motif 36', image: 'assets/Katun/KATUN 36.jpg' },
-      { code: 'Motif 37', image: 'assets/Katun/KATUN 37.jpg' },
-      { code: 'Motif 38', image: 'assets/Katun/KATUN 38.jpg' },
-      { code: 'Motif 39', image: 'assets/Katun/KATUN 39.jpg' },
-      { code: 'Motif 40', image: 'assets/Katun/KATUN 40.jpg' },
-      { code: 'Motif 41', image: 'assets/Katun/KATUN 41.jpg' },
-      { code: 'Motif 42', image: 'assets/Katun/KATUN 42.jpg' },
-      { code: 'Motif 43', image: 'assets/Katun/KATUN 43.jpg' },
-      { code: 'Motif 44', image: 'assets/Katun/KATUN 44.jpg' },
-      { code: 'Motif 45', image: 'assets/Katun/KATUN 45.jpg' },
-      { code: 'Motif 46', image: 'assets/Katun/KATUN 46.jpg' },
-      { code: 'Motif 47', image: 'assets/Katun/KATUN 47.jpg' },
-      { code: 'Motif 48', image: 'assets/Katun/KATUN 48.jpg' },
-      { code: 'Motif 49', image: 'assets/Katun/KATUN 49.jpg' },
-      { code: 'Motif 50', image: 'assets/Katun/KATUN 50.jpg' },
-      { code: 'Motif 51', image: 'assets/Katun/KATUN 51.jpg' },
-      { code: 'Motif 52', image: 'assets/Katun/KATUN 52.jpg' },
-      { code: 'Motif 53', image: 'assets/Katun/KATUN 53.jpg' },
-      { code: 'Motif 54', image: 'assets/Katun/KATUN 54.jpg' },
-      { code: 'Motif 55', image: 'assets/Katun/KATUN 55.jpg' },
-      { code: 'Motif 56', image: 'assets/Katun/KATUN 56.jpg' },
-      { code: 'Motif 57', image: 'assets/Katun/KATUN 57.jpg' },
-      { code: 'Motif 58', image: 'assets/Katun/KATUN 58.jpg' },
-      { code: 'Motif 59', image: 'assets/Katun/KATUN 59.jpg' },
-      { code: 'Motif 60', image: 'assets/Katun/KATUN 60.jpg' },
-      { code: 'Motif 61', image: 'assets/Katun/KATUN 61.jpg' },
-      { code: 'Motif 62', image: 'assets/Katun/KATUN 62.jpg' },
-      { code: 'Motif 63', image: 'assets/Katun/KATUN 63.jpg' },
-      { code: 'Motif 64', image: 'assets/Katun/KATUN 64.jpg' },
-      { code: 'Motif 65', image: 'assets/Katun/KATUN 65.jpg' },
-      { code: 'Motif 66', image: 'assets/Katun/KATUN 66.jpg' },
-      { code: 'Motif 67', image: 'assets/Katun/KATUN 67.jpg' },
-      { code: 'Motif 68', image: 'assets/Katun/KATUN 68.jpg' },
-      { code: 'Motif 69', image: 'assets/Katun/KATUN 69.jpg' },
-      { code: 'Motif 70', image: 'assets/Katun/KATUN 70.jpg' },
-      { code: 'Motif 71', image: 'assets/Katun/KATUN 71.jpg' },
-      { code: 'Motif 72', image: 'assets/Katun/KATUN 72.jpg' },
-      { code: 'Motif 73', image: 'assets/Katun/KATUN 73.jpg' },
-      { code: 'Motif 74', image: 'assets/Katun/KATUN 74.jpg' },
-      { code: 'Motif 75', image: 'assets/Katun/KATUN 75.jpg' },
-      { code: 'Motif 76', image: 'assets/Katun/KATUN 76.jpg' },
-      { code: 'Motif 77', image: 'assets/Katun/KATUN 77.jpg' },
-      { code: 'Motif 78', image: 'assets/Katun/KATUN 78.jpg' },
-      { code: 'Motif 79', image: 'assets/Katun/KATUN 79.jpg' },
-      { code: 'Motif 80', image: 'assets/Katun/KATUN 80.jpg' },
-      { code: 'Motif 81', image: 'assets/Katun/KATUN 81.jpg' },
-      { code: 'Motif 82', image: 'assets/Katun/KATUN 82.jpg' },
-      { code: 'Motif 83', image: 'assets/Katun/KATUN 83.jpg' },
-      { code: 'Motif 84', image: 'assets/Katun/KATUN 84.jpg' },
-      { code: 'Motif 85', image: 'assets/Katun/KATUN 85.jpg' },
-      { code: 'Motif 86', image: 'assets/Katun/KATUN 86.jpg' },
-      { code: 'Motif 87', image: 'assets/Katun/KATUN 87.jpg' },
-      { code: 'Motif 88', image: 'assets/Katun/KATUN 88.jpg' },
-      { code: 'Motif 89', image: 'assets/Katun/KATUN 89.jpg' },
-      { code: 'Motif 90', image: 'assets/Katun/KATUN 90.jpg' },
+      { code: 'Motif 01', image: 'assets/Katun/KATUN 1.jpg', stock: 'tersedia' }, // TODO: ganti "" dengan path foto motif asli
+      { code: 'Motif 02', image: 'assets/Katun/KATUN 2.jpg', stock: 'tersedia' },
+      { code: 'Motif 03', image: 'assets/Katun/KATUN 3.jpg', stock: 'tersedia' },
+      { code: 'Motif 04', image: 'assets/Katun/KATUN 4.jpg', stock: 'tersedia' },
+      { code: 'Motif 05', image: 'assets/Katun/KATUN 5.jpg', stock: 'tersedia' },
+      { code: 'Motif 06', image: 'assets/Katun/KATUN 6.jpg', stock: 'tersedia' },
+      { code: 'Motif 07', image: 'assets/Katun/KATUN 7.jpg', stock: 'tersedia' },
+      { code: 'Motif 08', image: 'assets/Katun/KATUN 8.jpg', stock: 'tersedia' },
+      { code: 'Motif 09', image: 'assets/Katun/KATUN 9.jpg', stock: 'tersedia' },
+      { code: 'Motif 10', image: 'assets/Katun/KATUN 10.jpg', stock: 'tersedia' },
+      { code: 'Motif 11', image: 'assets/Katun/KATUN 11.jpg', stock: 'tersedia' },
+      { code: 'Motif 12', image: 'assets/Katun/KATUN 12.jpg', stock: 'tersedia' },
+      { code: 'Motif 13', image: 'assets/Katun/KATUN 13.jpg', stock: 'tersedia' },
+      { code: 'Motif 14', image: 'assets/Katun/KATUN 14.jpg', stock: 'tersedia' },
+      { code: 'Motif 15', image: 'assets/Katun/KATUN 15.jpg', stock: 'tersedia' },
+      { code: 'Motif 16', image: 'assets/Katun/KATUN 16.jpg', stock: 'tersedia' },
+      { code: 'Motif 17', image: 'assets/Katun/KATUN 17.jpg', stock: 'tersedia' },
+      { code: 'Motif 18', image: 'assets/Katun/KATUN 18.jpg', stock: 'tersedia' },
+      { code: 'Motif 19', image: 'assets/Katun/KATUN 19.jpg', stock: 'tersedia' },
+      { code: 'Motif 20', image: 'assets/Katun/KATUN 20.jpg', stock: 'tersedia' },
+      { code: 'Motif 21', image: 'assets/Katun/KATUN 21.jpg', stock: 'tersedia' },
+      { code: 'Motif 22', image: 'assets/Katun/KATUN 22.jpg', stock: 'tersedia' },
+      { code: 'Motif 23', image: 'assets/Katun/KATUN 23.jpg', stock: 'tersedia' },
+      { code: 'Motif 24', image: 'assets/Katun/KATUN 24.jpg', stock: 'tersedia' },
+      { code: 'Motif 25', image: 'assets/Katun/KATUN 25.jpg', stock: 'tersedia' },
+      { code: 'Motif 26', image: 'assets/Katun/KATUN 26.jpg', stock: 'tersedia' },
+      { code: 'Motif 27', image: 'assets/Katun/KATUN 27.jpg', stock: 'tersedia' },
+      { code: 'Motif 28', image: 'assets/Katun/KATUN 28.jpg', stock: 'tersedia' },
+      { code: 'Motif 29', image: 'assets/Katun/KATUN 29.jpg', stock: 'tersedia' },
+      { code: 'Motif 30', image: 'assets/Katun/KATUN 30.jpg', stock: 'tersedia' },
+      { code: 'Motif 31', image: 'assets/Katun/KATUN 31.jpg', stock: 'tersedia' },
+      { code: 'Motif 32', image: 'assets/Katun/KATUN 32.jpg', stock: 'tersedia' },
+      { code: 'Motif 33', image: 'assets/Katun/KATUN 33.jpg', stock: 'tersedia' },
+      { code: 'Motif 34', image: 'assets/Katun/KATUN 34.jpg', stock: 'tersedia' },
+      { code: 'Motif 35', image: 'assets/Katun/KATUN 35.jpg', stock: 'tersedia' },
+      { code: 'Motif 36', image: 'assets/Katun/KATUN 36.jpg', stock: 'tersedia' },
+      { code: 'Motif 37', image: 'assets/Katun/KATUN 37.jpg', stock: 'tersedia' },
+      { code: 'Motif 38', image: 'assets/Katun/KATUN 38.jpg', stock: 'tersedia' },
+      { code: 'Motif 39', image: 'assets/Katun/KATUN 39.jpg', stock: 'tersedia' },
+      { code: 'Motif 40', image: 'assets/Katun/KATUN 40.jpg', stock: 'tersedia' },
+      { code: 'Motif 41', image: 'assets/Katun/KATUN 41.jpg', stock: 'tersedia' },
+      { code: 'Motif 42', image: 'assets/Katun/KATUN 42.jpg', stock: 'tersedia' },
+      { code: 'Motif 43', image: 'assets/Katun/KATUN 43.jpg', stock: 'tersedia' },
+      { code: 'Motif 44', image: 'assets/Katun/KATUN 44.jpg', stock: 'tersedia' },
+      { code: 'Motif 45', image: 'assets/Katun/KATUN 45.jpg', stock: 'tersedia' },
+      { code: 'Motif 46', image: 'assets/Katun/KATUN 46.jpg', stock: 'tersedia' },
+      { code: 'Motif 47', image: 'assets/Katun/KATUN 47.jpg', stock: 'tersedia' },
+      { code: 'Motif 48', image: 'assets/Katun/KATUN 48.jpg', stock: 'tersedia' },
+      { code: 'Motif 49', image: 'assets/Katun/KATUN 49.jpg', stock: 'tersedia' },
+      { code: 'Motif 50', image: 'assets/Katun/KATUN 50.jpg', stock: 'tersedia' },
+      { code: 'Motif 51', image: 'assets/Katun/KATUN 51.jpg', stock: 'tersedia' },
+      { code: 'Motif 52', image: 'assets/Katun/KATUN 52.jpg', stock: 'tersedia' },
+      { code: 'Motif 53', image: 'assets/Katun/KATUN 53.jpg', stock: 'tersedia' },
+      { code: 'Motif 54', image: 'assets/Katun/KATUN 54.jpg', stock: 'tersedia' },
+      { code: 'Motif 55', image: 'assets/Katun/KATUN 55.jpg', stock: 'tersedia' },
+      { code: 'Motif 56', image: 'assets/Katun/KATUN 56.jpg', stock: 'tersedia' },
+      { code: 'Motif 57', image: 'assets/Katun/KATUN 57.jpg', stock: 'tersedia' },
+      { code: 'Motif 58', image: 'assets/Katun/KATUN 58.jpg', stock: 'tersedia' },
+      { code: 'Motif 59', image: 'assets/Katun/KATUN 59.jpg', stock: 'tersedia' },
+      { code: 'Motif 60', image: 'assets/Katun/KATUN 60.jpg', stock: 'tersedia' },
+      { code: 'Motif 61', image: 'assets/Katun/KATUN 61.jpg', stock: 'tersedia' },
+      { code: 'Motif 62', image: 'assets/Katun/KATUN 62.jpg', stock: 'tersedia' },
+      { code: 'Motif 63', image: 'assets/Katun/KATUN 63.jpg', stock: 'tersedia' },
+      { code: 'Motif 64', image: 'assets/Katun/KATUN 64.jpg', stock: 'tersedia' },
+      { code: 'Motif 65', image: 'assets/Katun/KATUN 65.jpg', stock: 'tersedia' },
+      { code: 'Motif 66', image: 'assets/Katun/KATUN 66.jpg', stock: 'tersedia' },
+      { code: 'Motif 67', image: 'assets/Katun/KATUN 67.jpg', stock: 'tersedia' },
+      { code: 'Motif 68', image: 'assets/Katun/KATUN 68.jpg', stock: 'tersedia' },
+      { code: 'Motif 69', image: 'assets/Katun/KATUN 69.jpg', stock: 'tersedia' },
+      { code: 'Motif 70', image: 'assets/Katun/KATUN 70.jpg', stock: 'tersedia' },
+      { code: 'Motif 71', image: 'assets/Katun/KATUN 71.jpg', stock: 'tersedia' },
+      { code: 'Motif 72', image: 'assets/Katun/KATUN 72.jpg', stock: 'tersedia' },
+      { code: 'Motif 73', image: 'assets/Katun/KATUN 73.jpg', stock: 'tersedia' },
+      { code: 'Motif 74', image: 'assets/Katun/KATUN 74.jpg', stock: 'tersedia' },
+      { code: 'Motif 75', image: 'assets/Katun/KATUN 75.jpg', stock: 'tersedia' },
+      { code: 'Motif 76', image: 'assets/Katun/KATUN 76.jpg', stock: 'tersedia' },
+      { code: 'Motif 77', image: 'assets/Katun/KATUN 77.jpg', stock: 'tersedia' },
+      { code: 'Motif 78', image: 'assets/Katun/KATUN 78.jpg', stock: 'tersedia' },
+      { code: 'Motif 79', image: 'assets/Katun/KATUN 79.jpg', stock: 'tersedia' },
+      { code: 'Motif 80', image: 'assets/Katun/KATUN 80.jpg', stock: 'tersedia' },
+      { code: 'Motif 81', image: 'assets/Katun/KATUN 81.jpg', stock: 'tersedia' },
+      { code: 'Motif 82', image: 'assets/Katun/KATUN 82.jpg', stock: 'tersedia' },
+      { code: 'Motif 83', image: 'assets/Katun/KATUN 83.jpg', stock: 'tersedia' },
+      { code: 'Motif 84', image: 'assets/Katun/KATUN 84.jpg', stock: 'tersedia' },
+      { code: 'Motif 85', image: 'assets/Katun/KATUN 85.jpg', stock: 'tersedia' },
+      { code: 'Motif 86', image: 'assets/Katun/KATUN 86.jpg', stock: 'tersedia' },
+      { code: 'Motif 87', image: 'assets/Katun/KATUN 87.jpg', stock: 'tersedia' },
+      { code: 'Motif 88', image: 'assets/Katun/KATUN 88.jpg', stock: 'tersedia' },
+      { code: 'Motif 89', image: 'assets/Katun/KATUN 89.jpg', stock: 'tersedia' },
+      { code: 'Motif 90', image: 'assets/Katun/KATUN 90.jpg', stock: 'tersedia' },
     ],
   },
 
@@ -386,9 +399,9 @@ const PRODUCTS = [
     ],
     image: 'assets/Kaos MB/Kaos MB.jpg',
     variants: [ 
-      { code: 'Hitam', image: 'assets/Kaos MB/Kaos MB Hitam.jpg' }, 
-      { code: 'Putih', image: 'assets/Kaos MB/Kaos MB Putih.jpg' }, 
-      { code: 'Hijau', image: 'assets/Kaos MB/Kaos MB Hijau.jpg' } 
+      { code: 'Hitam', image: 'assets/Kaos MB/Kaos MB Hitam.jpg', stock: 'tersedia' }, 
+      { code: 'Putih', image: 'assets/Kaos MB/Kaos MB Putih.jpg', stock: 'tersedia' }, 
+      { code: 'Hijau', image: 'assets/Kaos MB/Kaos MB Hijau.jpg', stock: 'tersedia' } 
     ],
   },
   
@@ -409,6 +422,28 @@ function mediaPlaceholderHTML(labelText){
       </svg>
       <span>${labelText}</span>
     </div>`;
+}
+
+/* Label & terjemahan status stok - dipakai bareng di card & modal */
+const STOCK_LABELS = {
+  tersedia: 'Tersedia',
+  terbatas: 'Stok Terbatas',
+  habis: 'Stok Habis',
+};
+
+/* Hitung status stok gabungan 1 produk dari semua variant/motif-nya,
+   dipakai buat badge & pita di card katalog (grid depan). */
+function computeStockSummary(variants){
+  const total = variants.length;
+  const habisCount = variants.filter(v => (v.stock || 'tersedia') === 'habis').length;
+  const terbatasCount = variants.filter(v => (v.stock || 'tersedia') === 'terbatas').length;
+  const availableCount = total - habisCount;
+
+  let level = 'tersedia';
+  if (habisCount === total) level = 'habis';
+  else if (habisCount > 0 || terbatasCount > 0) level = 'terbatas';
+
+  return { level, label: STOCK_LABELS[level], total, availableCount };
 }
 
 function initHeaderLinks(){
@@ -456,20 +491,25 @@ function renderGrid(){
   grid.innerHTML = items.map(p => {
     const hasDiscount = p.priceOriginal > p.priceSale;
     const discountPct = hasDiscount ? Math.round((1 - p.priceSale / p.priceOriginal) * 100) : 0;
+    const stockSummary = computeStockSummary(p.variants);
     const mediaHTML = p.image
       ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
       : mediaPlaceholderHTML('Foto belum diunggah');
 
     return `
       <article class="card">
-        <div class="card-media">
+        <div class="card-media${stockSummary.level === 'habis' ? ' stock-habis' : ''}">
           <span class="card-badge">${p.badge}</span>
           ${hasDiscount ? `<span class="card-discount">Hemat ${discountPct}%</span>` : ''}
           ${mediaHTML}
+          ${stockSummary.level !== 'tersedia' ? `<span class="stock-strip ${stockSummary.level}">${stockSummary.label}</span>` : ''}
         </div>
         <div class="card-body">
           <h3 class="card-title">${p.name}</h3>
-          <p class="card-meta">${p.variants.length} pilihan motif tersedia</p>
+          <div class="card-meta-row">
+            <span class="stock-badge ${stockSummary.level}">${stockSummary.label}</span>
+            <span class="card-meta">${stockSummary.availableCount}/${stockSummary.total} motif tersedia</span>
+          </div>
           <div class="card-price">
             ${hasDiscount ? `<span class="price-original">${formatIDR(p.priceOriginal)}</span>` : ''}
             <span class="price-sale">${formatIDR(p.priceSale)}</span>
@@ -540,21 +580,44 @@ function openModal(productId){
   document.body.classList.add('modal-lock');
 }
 
+/* Render badge status stok punya motif/varian yang lagi dipilih,
+   ditaruh di sebelah badge koleksi (Regular Collection dkk). */
+function updateStockBadge(){
+  const stock = (state.currentVariant && state.currentVariant.stock) || 'tersedia';
+  const badge = document.getElementById('modalStockBadge');
+  badge.textContent = STOCK_LABELS[stock];
+  badge.className = `stock-badge ${stock}`;
+}
+
 function renderGallery(){
   const product = state.currentProduct;
   const mainWrap = document.getElementById('modalMainMedia');
   const thumbWrap = document.getElementById('modalThumbs');
+  const variantStock = (state.currentVariant && state.currentVariant.stock) || 'tersedia';
 
   const mainImg = state.currentVariant?.image || product.image;
-  mainWrap.innerHTML = mainImg
+  const imgHTML = mainImg
     ? `<img src="${mainImg}" alt="${product.name} - ${state.currentVariant ? state.currentVariant.code : ''}">`
     : mediaPlaceholderHTML(state.currentVariant ? state.currentVariant.code : 'Foto produk');
+  const ribbonHTML = variantStock === 'habis' ? `<span class="stock-ribbon">Stok Habis</span>` : '';
 
-  thumbWrap.innerHTML = product.variants.map((v, i) => `
-    <button class="thumb ${v === state.currentVariant ? 'active' : ''}" data-idx="${i}" title="${v.code}">
-      ${v.image ? `<img src="${v.image}" alt="${v.code}">` : mediaPlaceholderHTML(v.code)}
-    </button>
-  `).join('');
+  mainWrap.className = 'modal-main-media' + (variantStock === 'habis' ? ' out-of-stock' : '');
+  mainWrap.innerHTML = imgHTML + ribbonHTML;
+
+  thumbWrap.innerHTML = product.variants.map((v, i) => {
+    const stock = v.stock || 'tersedia';
+    const stockClass = stock !== 'tersedia' ? ` thumb-${stock}` : '';
+    const dotHTML = stock === 'habis'
+      ? '<span class="thumb-dot habis"></span>'
+      : stock === 'terbatas'
+        ? '<span class="thumb-dot terbatas"></span>'
+        : '';
+    return `
+      <button class="thumb${v === state.currentVariant ? ' active' : ''}${stockClass}" data-idx="${i}" title="${v.code} — ${STOCK_LABELS[stock]}">
+        ${v.image ? `<img src="${v.image}" alt="${v.code}">` : mediaPlaceholderHTML(v.code)}
+        ${dotHTML}
+      </button>`;
+  }).join('');
 
   thumbWrap.querySelectorAll('.thumb').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -563,6 +626,8 @@ function renderGallery(){
       updateWaButton();
     });
   });
+
+  updateStockBadge();
 }
 
 /* Render pilihan ukuran (pill S/M/L/XL) - cuma tampil kalau produknya kategori 'kaos'
@@ -591,16 +656,24 @@ function renderSizePicker(){
   });
 }
 
-/* Tombol "Pesan via WhatsApp" otomatis nonaktif kalau produknya kaos
-   dan ukuran belum dipilih - biar nggak ada pesanan tanpa ukuran. */
+/* Tombol "Pesan via WhatsApp" otomatis nonaktif kalau:
+   - produknya kaos dan ukuran belum dipilih, ATAU
+   - motif/warna yang lagi dipilih stoknya 'habis'
+   Kalau keduanya kejadian bareng, hint ukuran yang diprioritaskan
+   duluan (karena itu langkah pertama yang harus diselesaikan). */
 function updateWaButton(){
   const product = state.currentProduct;
   const waBtn = document.getElementById('modalWaBtn');
-  const hint = document.getElementById('sizeHint');
+  const sizeHint = document.getElementById('sizeHint');
+  const stockHint = document.getElementById('stockHint');
+
   const needsSize = product.category === 'kaos' && Array.isArray(product.sizes) && product.sizes.length > 0;
   const sizeMissing = needsSize && !state.currentSize;
+  const variantOutOfStock = ((state.currentVariant && state.currentVariant.stock) || 'tersedia') === 'habis';
 
-  if (sizeMissing){
+  const disabled = sizeMissing || variantOutOfStock;
+
+  if (disabled){
     waBtn.classList.add('disabled');
     waBtn.removeAttribute('href');
     waBtn.setAttribute('aria-disabled', 'true');
@@ -611,7 +684,8 @@ function updateWaButton(){
     waBtn.href = waLink(msg);
   }
 
-  hint.style.display = sizeMissing ? '' : 'none';
+  sizeHint.style.display = sizeMissing ? '' : 'none';
+  stockHint.style.display = (!sizeMissing && variantOutOfStock) ? '' : 'none';
 }
 
 function closeModal(){
@@ -619,17 +693,30 @@ function closeModal(){
   document.body.classList.remove('modal-lock');
 }
 
-/* Kalau tombol WA lagi disabled (ukuran belum dipilih) terus tetap diklik,
-   kasih feedback visual (shake + hint) biar user sadar harus pilih ukuran dulu */
+/* Kalau tombol WA lagi disabled terus tetap diklik, kasih feedback
+   visual (shake + hint) sesuai penyebabnya - ukuran belum dipilih
+   atau motif/warna yang dipilih lagi habis. */
 document.getElementById('modalWaBtn').addEventListener('click', (e) => {
   const waBtn = document.getElementById('modalWaBtn');
-  if (waBtn.classList.contains('disabled')){
-    e.preventDefault();
+  if (!waBtn.classList.contains('disabled')) return;
+  e.preventDefault();
+
+  const product = state.currentProduct;
+  const needsSize = product.category === 'kaos' && Array.isArray(product.sizes) && product.sizes.length > 0;
+  const sizeMissing = needsSize && !state.currentSize;
+
+  if (sizeMissing){
     const block = document.getElementById('sizePickerBlock');
     document.getElementById('sizeHint').style.display = '';
     block.classList.remove('shake');
     void block.offsetWidth; // restart animasi shake
     block.classList.add('shake');
+  } else {
+    const gallery = document.querySelector('.modal-gallery');
+    document.getElementById('stockHint').style.display = '';
+    gallery.classList.remove('shake');
+    void gallery.offsetWidth; // restart animasi shake
+    gallery.classList.add('shake');
   }
 });
 
