@@ -255,6 +255,7 @@ const PRODUCTS = [
   },
 
   {
+    // Bagian ini nanti diubah sesuaikan dengan poster baru
     id: 'sarung-katun',
     category: 'sarung',
     badge: 'Regular Collection',
