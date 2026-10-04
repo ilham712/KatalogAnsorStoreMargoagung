@@ -161,6 +161,7 @@ const PRODUCTS = [
   },
 
   {
+    // Sebisa mungkin besok harus update ini
     id: 'sarung-gloyor-plus',
     category: 'sarung',
     badge: 'Regular Collection',
