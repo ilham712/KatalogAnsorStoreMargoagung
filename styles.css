@@ -554,6 +554,19 @@
     display:none;
   }
 
+  /* HP: thumbnail motif jadi 1 baris yang digeser ke samping (carousel),
+     supaya foto utama & thumbnail tetap kelihatan bareng walau motifnya ratusan.
+     PENTING: blok ini harus ditaruh SETELAH aturan .modal-thumbs dan .thumb di atas. */
+  @media (max-width:720px){
+    .modal-thumbs{
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      padding-bottom:8px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .thumb{flex-shrink:0;}
+  }
+
   .modal-info{
     padding:26px 26px 30px;
   }
@@ -768,3 +781,4 @@
     .hero-inner{padding:52px 0 40px;}
     .modal-info{padding:22px 20px 26px;}
   }
+  

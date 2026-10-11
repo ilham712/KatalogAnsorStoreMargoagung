@@ -591,10 +591,12 @@ function updateStockBadge(){
   badge.className = `stock-badge ${stock}`;
 }
 
-function renderGallery(){
+function renderGallery(keepScroll = false){
   const product = state.currentProduct;
   const mainWrap = document.getElementById('modalMainMedia');
   const thumbWrap = document.getElementById('modalThumbs');
+  // simpan posisi geser thumbnail, biar nggak lompat ke motif 1 tiap klik
+  const prevScroll = keepScroll ? thumbWrap.scrollLeft : 0;
   const variantStock = (state.currentVariant && state.currentVariant.stock) || 'tersedia';
 
   const mainImg = state.currentVariant?.image || product.image;
@@ -621,10 +623,12 @@ function renderGallery(){
       </button>`;
   }).join('');
 
+  thumbWrap.scrollLeft = prevScroll;
+
   thumbWrap.querySelectorAll('.thumb').forEach(btn => {
     btn.addEventListener('click', () => {
       state.currentVariant = product.variants[Number(btn.dataset.idx)];
-      renderGallery();
+      renderGallery(true);
       updateWaButton();
     });
   });
