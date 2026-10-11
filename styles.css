@@ -275,6 +275,13 @@
   .card-media{
     position:relative;
     aspect-ratio:4/5;
+    overflow:hidden;
+  }
+  /* Foto otomatis memenuhi kotak card & di-crop tengah, tidak lagi ikut ukuran asli file */
+  .card-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
   .card-media.stock-habis img{
     filter:grayscale(65%);
@@ -459,11 +466,14 @@
     overflow-y:auto;
     border-radius:var(--radius-md);
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   }
   @media (max-width: 720px){
-    .modal{grid-template-columns:1fr; max-height:94vh;}
+    .modal{grid-template-columns:minmax(0,1fr); max-height:94vh;}
   }
+  /* Penting: tanpa ini, barisan thumbnail yang panjang bikin kolom melebar & foto jadi raksasa */
+  .modal-gallery,
+  .modal-info{min-width:0;}
 
   .modal-close{
     position:absolute;
@@ -529,7 +539,7 @@
     padding:0;
   }
   .thumb.active{border-color:var(--gold-600);}
-  .thumb img,.thumb .media-placeholder{width:100%;height:100%;}
+  .thumb img,.thumb .media-placeholder{width:100%;height:100%;object-fit:cover;}
   .thumb .media-placeholder svg{width:14px;height:14px;}
   .thumb .media-placeholder span{display:none;}
   .thumb.thumb-habis img{filter:grayscale(70%); opacity:.45;}
